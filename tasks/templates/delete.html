@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Deseja deletar</p>
+        <button type="submit">
+            Sim, Quero deletar
+        </button>
+    </form>
 </body>
 </html>

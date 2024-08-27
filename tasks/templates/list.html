@@ -6,6 +6,17 @@
 </head>
 <body>
     <div>
+        <form method="get">
+            <div>
+                <input value="{{request.get.completed}}" type="checkbox" id="taskfilter" name="completed" checked />
+                <label for="taskfilter">Não concluidas </label>
+                <button type="submit">
+                    buscar
+                </button>
+            </div>
+        </form>
+    </div>
+    <div>
         <ul>
         {% for obj in object_list  %}
             <li>{{obj.title}}</li>
