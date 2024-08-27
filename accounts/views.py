@@ -20,3 +20,6 @@ def register(request):
             print('invalid registration details')
 
     return render(request, "registration/register.html", {"form": form})
+
+def data(request):
+    return render(request, "registration/data.html")
