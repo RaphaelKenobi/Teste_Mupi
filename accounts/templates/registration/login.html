@@ -1,6 +1,6 @@
 {% extends 'base_accounts.html' %}
 
-{% block title %}Logar{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 <div class="col-12">
@@ -25,7 +25,14 @@
                 <small class="text-danger">{{ error }}</small>
             {% endfor %}
         {% endfor %}
-        <button class="btn btn-warning mt-3" type="submit">Logar</button>
+    <div class="text-center">
+        <button class="btn btn-warning mt-3" type="submit">Login</button>
+    </div>
+
     </form>
+    <div class="text-center">
+        <a class="btn btn-link btn-custom" href="{% url 'landing' %}">Voltar</a>
+    </div>
+
 </div>
 {% endblock %}

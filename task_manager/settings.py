@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'Test_mupy',
+        'NAME': 'Test_mupi',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
