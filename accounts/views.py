@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .admin import CustomUserCreationForm
+from .forms import CustomUserCreationForm
 from django.contrib import messages
 
 
@@ -19,7 +19,5 @@ def register(request):
         else:
             print('invalid registration details')
 
-    return render(request, "registration/register.html", {"form": form})
+    return render(request, "registration/login_accounts.html", {"form": form})
 
-def data(request):
-    return render(request, "registration/data.html")
