@@ -1,0 +1,12 @@
+{% extends 'base_accounts.html' %}
+
+{% block title %}Logar{% endblock %}
+
+{% block content %}
+<div class="col-12">
+    <h4>Entrar</h4>
+
+    <a class="btn btn-primary" href="{% url 'login' %}">Logar</a>
+    <a class="btn btn-primary" href="{% url 'register' %}">Registrar</a>
+</div>
+{% endblock %}

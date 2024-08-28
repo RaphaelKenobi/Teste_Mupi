@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_data.html' %}
+{% block title %}
+    Criar Tarefa
+{% endblock %}
 
+{% block content %}
     <div>
         <form method="post" enctype="multipart/form-data">
         <div class="card-body">
@@ -17,8 +15,4 @@
         </div>
       </form>
     </div>
-
-
-
-</body>
-</html>
+{% endblock %}

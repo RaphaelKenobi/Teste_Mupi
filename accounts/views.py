@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
+from django.views.generic import TemplateView
 from django.contrib import messages
 
 
@@ -19,5 +20,7 @@ def register(request):
         else:
             print('invalid registration details')
 
-    return render(request, "registration/login_accounts.html", {"form": form})
+    return render(request, "registration/register.html", {"form": form})
 
+class LandingView(TemplateView):
+    template_name = 'landing.html'

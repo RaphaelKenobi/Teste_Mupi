@@ -4,8 +4,6 @@ from .models import Task
 from .forms import TaskForm
 from django.urls import reverse_lazy
 
-class LoginView(TemplateView):
-    template_name = 'login.html'
 
 class HomeView(TemplateView):
     template_name = 'home.html'

@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import LoginView, HomeView, CreateTaskView, DeleteTaskView, ListTaskView, UpdateTaskView
+from .views import HomeView, CreateTaskView, DeleteTaskView, ListTaskView, UpdateTaskView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    path('', LoginView.as_view(), name='login'),
-    path('home', HomeView.as_view(), name='home'),
-    path('create', CreateTaskView.as_view(), name='create'),
-    path('delete/<int:pk>', DeleteTaskView.as_view(), name='delete'),
-    path('list', ListTaskView.as_view(), name='list'),
-    path('update/<int:pk>', UpdateTaskView.as_view(), name='update'),
+    path('home', login_required(HomeView.as_view()), name='home'),
+    path('create', login_required(CreateTaskView.as_view()), name='create'),
+    path('delete/<int:pk>', login_required(DeleteTaskView.as_view()), name='delete'),
+    path('list', login_required(ListTaskView.as_view()), name='list'),
+    path('update/<int:pk>', login_required(UpdateTaskView.as_view()), name='update'),
 ]
