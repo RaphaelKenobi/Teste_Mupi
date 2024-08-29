@@ -1,0 +1,10 @@
+.no-background {
+    background-color: transparent;
+    padding-left: 0; /* Alinha mais à esquerda */
+    text-align: left;
+    color: #004D40; /* Ajuste a cor do texto conforme necessário */
+}
+
+.no-background:hover {
+    text-decoration: underline; /* Apenas sublinha ao passar o mouse */
+}
