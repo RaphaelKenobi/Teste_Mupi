@@ -12,5 +12,7 @@ urlpatterns = [
     path('', LandingView.as_view(), name='landing'),
 
 ]
+
+handler404 = 'tasks.views.handler404'
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

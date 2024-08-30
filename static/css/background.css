@@ -8,3 +8,6 @@
 .no-background:hover {
     text-decoration: underline; /* Apenas sublinha ao passar o mouse */
 }
+
+background.collor {
+    background-color: #1c1a1a; /* Ajuste a cor de fundo conforme necessário */

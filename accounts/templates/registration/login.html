@@ -6,6 +6,8 @@
 <title>Login</title>
 <link rel="stylesheet" href="{% static 'css/font.css' %}">
 <link rel="stylesheet" href="{% static 'css/background.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
 <div class="col-12">
 
     <style>
@@ -20,12 +22,13 @@
 
 
     <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="mt-3">
-                <label class="form-label" for="id_{{ field.name }}">{{ field.label|capfirst }}:</label>
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="mt-3">
+            <label class="form-label" for="id_{{ field.name }}">{{ field.label|capfirst }}:</label>
+            <div class="input-group">
                 <input
-                    type="text"
+                    type="{% if field.field.widget.input_type == 'password' %}password{% else %}text{% endif %}"
                     name="{{ field.name }}"
                     id="{{ field.id_for_label }}"
                     {% if field.value != None %}value="{{ field.value|stringformat:'s' }}"{% endif %}
@@ -33,26 +36,52 @@
                     {% if field.required %}required{% endif %}
                     class="form-control"
                 >
+                {% if field.field.widget.input_type == 'password' %}
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('{{ field.id_for_label }}')">
+                    <i id="icon-{{ field.id_for_label }}" class="bi bi-eye"></i>
+                </button>
+                {% endif %}
             </div>
+        </div>
 
-            {% for error in field.errors %}
-                <small class="text-danger">{{ error }}</small>
-            {% endfor %}
+        {% for error in field.errors %}
+            <small class="text-danger">{{ error }}</small>
         {% endfor %}
+        {% endfor %}
+
+    </form>
+
+    <script>
+        function togglePasswordVisibility(id) {
+            const passwordField = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        }
+    </script>
 
         <div >
             <a class="btn btn-link no-background" href="{% url 'password_reset' %}">Forgot your password?</a>
         </div>
 
 
-        <div class="text-center" style="margin-top: 15px;">
+        <div class="text-center" style="margin-top: 16px;">
             <button class="btn btn-warning mt-3" type="submit">Login</button>
+            <a class="btn btn-link no-background" href="{% url 'home' %}"></a>
         </div>
 
     </form>
 
     <div class="text-center" >
-        <a class="btn btn-link btn-custom no-background" href="{% url 'landing' %}" style="margin-left: 12px;">Voltar</a>
+        <a class="btn btn-link btn-custom no-background" href="{% url 'landing' %}" style="margin-left: -4px;">Voltar</a>
     </div>
 
 </div>

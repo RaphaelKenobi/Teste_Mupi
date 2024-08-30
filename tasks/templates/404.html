@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página Não Encontrada</title>
+    <style>
+        body {
+            background-color: #24272c; /* Cor de fundo escura */
+            color: #FFFFFF; /* Cor do texto branca */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        h1 small {
+            font-size: 1rem;
+            color: #777777; /* Cor do texto menor (404) */
+            margin-left: 5px;
+        }
+
+        p.lead {
+            font-size: 1.2rem;
+            color: #AAAAAA; /* Cor do texto da mensagem */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>
+            Esta página está indisponível<small>404</small>
+        </h1>
+        <h4 class="lead">
+            Infelizmente a página que você procura não foi encontrada.
+        </h4>
+    </div>
+</body>
+</html>
