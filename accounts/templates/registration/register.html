@@ -51,14 +51,14 @@
         {% endfor %}
 
         <div class="text-center">
-            <button class="btn btn-warning mt-3" type="submit" href="{% url 'home' %}">Registrar</button>
+            <button class="btn btn-warning mt-3" type="submit" href="{% url 'login' %}">Registrar</button>
         </div>
     </form>
 
     <script>
         function togglePasswordVisibility(id) {
             const passwordField = document.getElementById(id);
-            const icon = document.getElementById(`icon-${id}`);
+            const icon = document.getElementById(icon-${id});
 
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
@@ -73,7 +73,7 @@
     </script>
 
     <div class="text-center">
-        <a class="btn btn-link btn-custom no-background" href="{% url 'landing' %}" style="margin-left: 16px;">Voltar</a>
+        <a class="btn btn-link btn-custom no-background" href="{% url 'landing' %}">Voltar</a>
     </div>
 
 </div>

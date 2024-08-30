@@ -1,15 +1,13 @@
 {% extends 'base_accounts.html' %}
-{% block title %}Login{% endblock %}
+{% block title %}Logar{% endblock %}
 {% block content %}
 {% load static %}
 
-<title>Login</title>
 <link rel="stylesheet" href="{% static 'css/font.css' %}">
 <link rel="stylesheet" href="{% static 'css/background.css' %}">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
 
 <div class="col-12">
-
     <style>
         .Times {
             font-family: 'Times New Roman', sans-serif;
@@ -19,7 +17,6 @@
     <div class="py-3" style="background-color: #246a6a;">
         <h3 class="text-center Times" style="color: #ffffff;">Entrar</h3>
     </div>
-
 
     <form method="post">
     {% csrf_token %}
@@ -47,41 +44,37 @@
         {% for error in field.errors %}
             <small class="text-danger">{{ error }}</small>
         {% endfor %}
-        {% endfor %}
+    {% endfor %}
 
-    </form>
-
-    <script>
-        function togglePasswordVisibility(id) {
-            const passwordField = document.getElementById(id);
-            const icon = document.getElementById(`icon-${id}`);
-
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                icon.classList.remove('bi-eye');
-                icon.classList.add('bi-eye-slash');
-            } else {
-                passwordField.type = 'password';
-                icon.classList.remove('bi-eye-slash');
-                icon.classList.add('bi-eye');
-            }
-        }
-    </script>
-
-        <div >
-            <a class="btn btn-link no-background" href="{% url 'password_reset' %}">Forgot your password?</a>
-        </div>
-
-
-        <div class="text-center" style="margin-top: 16px;">
-            <button class="btn btn-warning mt-3" type="submit">Login</button>
-        </div>
-
-    </form>
-
-    <div class="text-center" >
-        <a class="btn btn-link btn-custom no-background" href="{% url 'landing' %}" style="margin-left: -4px;">Voltar</a>
+    <div style="margin-top: 4px;">
+        <a class="btn btn-link no-background" href="{% url 'password_reset' %}">Forgot your password?</a>
     </div>
 
+    <div class="text-center" style="margin-top: 16px;">
+        <button class="btn btn-warning mt-3" type="submit">Login</button>
+    </div>
+
+    </form>
+
+    <div class="text-center">
+        <a class="btn btn-link btn-custom no-background" href="{% url 'landing' %}">Voltar</a>
+    </div>
 </div>
+
+<script>
+    function togglePasswordVisibility(id) {
+        const passwordField = document.getElementById(id);
+        const icon = document.getElementById(`icon-${id}`);
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            icon.classList.remove('bi-eye-slash');
+            icon.classList.add('bi-eye');
+        }
+    }
+</script>
 {% endblock %}
