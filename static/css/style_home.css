@@ -1,0 +1,70 @@
+.welcome-text {
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 126px;
+    color: #1c1b1b;
+    font-family: "Times New Roman";
+    text-align: center; /* Centraliza o texto */
+}
+
+.container {
+    margin: 100px auto;
+    text-align: center; /* Centraliza todo o conteúdo dentro do container */
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+
+}
+
+.container {
+    margin: 100px auto;
+    text-align: center; /* Centraliza todo o conteúdo dentro do container */
+}
+
+.margin {
+    background-color: #17bf17;
+    color: white;
+    margin-top: 30px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Times New Roman";
+    text-decoration: none; /* Remove a sublinha padrão de links */
+}
+
+.margin:hover {
+    background-color: #128512; /* Cor de fundo mais escura ao passar o mouse */
+    color: white; /* Mantém a cor do texto branca */
+    text-decoration: none; /* Garante que a sublinha não apareça */
+    cursor: pointer; /* Mantém o cursor como ponteiro para indicar um botão */
+}
+
+
+.paragraph-spacing {
+    margin-top: 42px;
+    display: inline-block; /* Permite centralizar o parágrafo */
+}
+
+p {
+
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    animation: typing 4s steps(40), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}

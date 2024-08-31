@@ -51,14 +51,14 @@
         {% endfor %}
 
         <div class="text-center">
-            <button class="btn btn-warning mt-3" type="submit" href="{% url 'login' %}">Registrar</button>
+            <button class="btn btn-warning mt-3" type="submit">Registrar</button>
         </div>
     </form>
 
     <script>
         function togglePasswordVisibility(id) {
             const passwordField = document.getElementById(id);
-            const icon = document.getElementById(icon-${id});
+            const icon = document.getElementById(`icon-${id}`);
 
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';

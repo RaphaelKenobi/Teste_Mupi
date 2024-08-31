@@ -3,11 +3,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Tasks</title>
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'img/book.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+        }
+    </style>
+
 </head>
 <body>
     {% include 'navbar.html' %}
 
+    <div class="container">
+        <h1 class="text-center welcome-text">Bem-vindo ao Tasks</h1>
+        <p class="paragraph-spacing">tasks o melhor aplicativo para o controle de suas atividades</p>
+        <div>
+            <a href="{% url 'create' %}" class="margin margin:hover">Crie sua primeira tarefa</a>
+        </div>
+    </div>
 
+</div>
 </body>
 </html>
