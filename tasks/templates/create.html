@@ -1,10 +1,14 @@
 {% extends 'base_data.html' %}
+
+{% load static %}
 {% block title %}
-    Criar Tarefa
 {% endblock %}
+<title>Criar Tarefa</title>
+
 
 {% block content %}
     <div>
+
         <form method="post" enctype="multipart/form-data">
         <div class="card-body">
             {% csrf_token %}
