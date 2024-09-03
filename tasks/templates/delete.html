@@ -1,6 +1,6 @@
 {% load static %}
 {% load widget_tweaks %}
-{% include 'navbar.html' %}
+
 
 {% block title %}
 <title>Deletar Tarefa</title>
@@ -35,7 +35,7 @@
 
                             <div class="card-footer text-end">
                                 <button type="submit" class="btn btn-danger">Sim, Quero deletar</button>
-                                <a href="{% url 'home' %}" class="btn btn-outline-secondary">Cancelar</a>
+                                <a href="{% url 'list' %}" class="btn btn-outline-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>

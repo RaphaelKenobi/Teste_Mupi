@@ -29,6 +29,7 @@ class UpdateTaskView(UpdateView):
     template_name = 'update.html'
     model = Task
     fields = ['title', 'description', 'completed', 'due_data']
+    success_url = reverse_lazy('list')
 
 
 class DeleteTaskView(DeleteView):
