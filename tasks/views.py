@@ -28,7 +28,7 @@ class ListTaskView(ListView):
 class UpdateTaskView(UpdateView):
     template_name = 'update.html'
     model = Task
-    fields = '__all__'
+    fields = ['title', 'description', 'completed', 'due_data']
 
 
 class DeleteTaskView(DeleteView):
@@ -42,6 +42,10 @@ class CreateTaskView(CreateView):
     model = Task
     form_class = InsereTaskForm
     success_url = reverse_lazy('list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 # ----------------------------------------------------------------------
