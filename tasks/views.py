@@ -4,23 +4,11 @@ from django.views.defaults import page_not_found
 from django.views.generic import TemplateView, UpdateView, CreateView, ListView, DeleteView
 from django.urls import reverse_lazy
 from .models import Task
+from .forms import InsereTaskForm
+
 
 class HomeView(TemplateView):
     template_name = 'home.html'
-
-
-class UpdateTaskView(UpdateView):
-    template_name = 'update.html'
-    model = Task
-    fields = '__all__'
-    success_url = reverse_lazy('list')
-
-
-class CreateTaskView(CreateView):
-    template_name = 'create.html'
-    model = Task
-    fields = '__all__'
-    success_url = reverse_lazy('list')
 
 
 class ListTaskView(ListView):
@@ -37,10 +25,28 @@ class ListTaskView(ListView):
         return qs
 
 
+class UpdateTaskView(UpdateView):
+    template_name = 'update.html'
+    model = Task
+    fields = ['title', 'description', 'completed', 'due_data']
+    success_url = reverse_lazy('list')
+
+
 class DeleteTaskView(DeleteView):
     template_name = 'delete.html'
     model = Task
     success_url = reverse_lazy('list')
+
+
+class CreateTaskView(CreateView):
+    template_name = 'create.html'
+    model = Task
+    form_class = InsereTaskForm
+    success_url = reverse_lazy('list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 # ----------------------------------------------------------------------

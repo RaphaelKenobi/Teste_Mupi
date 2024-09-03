@@ -3,8 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tasks</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    {% block styles %}{% endblock %}
     <style>
         body {
             margin: 0;
@@ -13,22 +16,54 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-
         }
-    </style>
 
+    </style>
 </head>
 <body>
     {% include 'navbar.html' %}
 
     <div class="container">
         <h1 class="text-center welcome-text">Bem-vindo ao Tasks</h1>
-        <p class="paragraph-spacing">tasks o melhor aplicativo para o controle de suas atividades</p>
-        <div>
-            <a href="{% url 'create' %}" class="margin margin:hover">Crie sua primeira tarefa</a>
-        </div>
-    </div>
+        <p class="paragraph-spacing">Tasks: o melhor aplicativo para o controle de suas atividades.</p>
 
-</div>
+
+        <div class="row mt-5">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-body" style="background-color: #ffefa8; border: 1px solid black;">
+                        <h5 class="card-title">Criar Tarefa</h5>
+                        <h5 class="card-text">
+                            Cadastre aqui uma nova <code>Tarefa</code>.
+                        </h5>
+                        <a href="{% url 'create' %}" class="btn btn-primary">
+                            Nova Tarefa
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card" style="background-color: #ffefa8; border: 1px solid black;">
+                        <div class="card-body">
+                            <h5 class="card-title">Lista de Tarefas</h5>
+                            <h5 class="card-text">
+                                Veja aqui a lista de <code>Tarefas</code> criadas.
+                            </h5>
+                            <a href="{% url 'list' %}" class="btn btn-primary">
+                                Vá para Lista
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {% block conteudo %}{% endblock %}
+    <script src="{% static 'website/js/jquery.min.js' %}"></script>
+    <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
+    <script src="{% static 'website/js/scripts.js' %}"></script>
 </body>
 </html>
