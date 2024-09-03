@@ -1,61 +1,57 @@
-{% extends 'home.html' %}
+{% load static %}
 {% load widget_tweaks %}
-{% block title %}Cadastro de Tarefas{% endblock %}
-{% block conteudo %}
+
+{% block title %}
+<title>Criar Tarefa</title>
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Cadastro de Tarefas</h5>
-                        <h4 class="card-text">
-                            Complete o formulário abaixo para cadastrar uma nova <code>Tarefa</code>.
-                        </h4>
-                        <form method="post">
-                            <!-- Não se esqueça dessa tag -->
+                        <p class="card-text">
+                            Complete o formulário abaixo para cadastrar
+                            uma nova <code>Tarefa</code>.
+                        </p>
+                        <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
 
-                            <!-- Nome -->
+                            <!-- Título -->
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Titulo da tarefa</span>
-                                </div>
+                                <span class="input-group-text">Título</span>
                                 {% render_field form.title class+="form-control" %}
                             </div>
 
-                            <!-- Sobrenome -->
+                            <!-- Descrição -->
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Descrição da tarefa</span>
-                                </div>
+                                <span class="input-group-text">Descrição da tarefa</span>
                                 {% render_field form.description class+="form-control" %}
                             </div>
 
-                            <!-- CPF -->
+                            <!-- Concluída -->
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Está completa?</span>
-                                </div>
+                                <span class="input-group-text">Concluída</span>
                                 {% render_field form.completed class+="form-control" %}
                             </div>
 
-                            <!-- Tempo de Serviço -->
+                            <!-- Finalizada em (campo de data) -->
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Finalizada em</span>
-                                </div>
+                                <span class="input-group-text">Finalizada em</span>
                                 {% render_field form.due_data class+="form-control" %}
                             </div>
 
-                            <!-- Remuneração -->
+                            <!-- Usuário -->
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">usuario</span>
-                                </div>
+                                <span class="input-group-text">Usuário</span>
                                 {% render_field form.user class+="form-control" %}
                             </div>
 
-                            <button class="btn btn-primary">Enviar</button>
+                            <div class="card-footer text-end">
+                                <button type="submit" class="btn btn-primary">Criar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

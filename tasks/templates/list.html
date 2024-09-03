@@ -1,65 +1,27 @@
-{% extends "home.html" %}
-
-{% block title %}Lista de Tarefas{% endblock %}
-
-{% load primeira_letra %}
-
-{% block conteudo %}
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card border-dark" data-aos="fade-in" data-aos-duration="750">
-                <div class="card-header"><b>Lista de Tarefas</b></div>
-                    <div class="card-body">
-                        {% if funcionarios|length > 0 %}
-                            <p class="card-text">Aqui está a lista de Tarefas cadastrados.</p>
-
-                            <table class="table table-light table-striped table-hover align-middle">
-                                <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Sobrenome</th>
-                                    <th scope="col">Tempo de Serviço</th>
-                                    <th scope="col">Remuneração</th>
-                                    <th scope="col" class="text-center">Ações</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for task in tasks %}
-                                    <tr>
-                                        <th scope="row">{{ task.title|primeira_letra }}</th>
-                                        <td>{{ task.title }}</td>
-                                        <td>{{ task.description }}</td>
-                                        <td>{{ task.due_date }}</td>
-                                        <td>{{ task.user }}</td>
-                                        <td class="text-center">
-                                            <a href="{% url 'erp:atualiza_tarefa' pk=task.id %}" class="btn btn-primary btn-sm">
-                                                Atualizar
-                                            </a>
-                                            <a href="{% url 'erp:deleta_tarefa' pk=task.id %}" class="btn btn-danger btn-sm">
-                                                Excluir
-                                            </a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-
-                                </tbody>
-                            </table>
-                        {% else %}
-                            <div class="text-center mt-5 mb-5 jumbotron">
-                                <h5>Nenhum <code>Funcionário</code> cadastrado ainda.</h5>
-                            </div>
-                        {% endif %}
-                        <hr/>
-                        <div class="text-end">
-                            <a href="{% url 'erp:cadastra_funcionario' %}" class="btn btn-primary btn-sm">
-                                Cadastrar Funcionário
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <form method="get">
+            <div>
+                <input value="{{request.get.completed}}" type="checkbox" id="taskfilter" name="completed" checked />
+                <label for="taskfilter">Não concluidas </label>
+                <button type="submit">
+                    buscar
+                </button>
             </div>
-        </div>
+        </form>
     </div>
-{% endblock %}
+    <div>
+        <ul>
+        {% for obj in object_list  %}
+            <li>{{obj.title}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

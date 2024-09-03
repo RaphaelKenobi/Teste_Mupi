@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from .models import Task
 from .forms import InsereTaskForm
 
+
 class HomeView(TemplateView):
     template_name = 'home.html'
 
@@ -13,13 +14,21 @@ class HomeView(TemplateView):
 class ListTaskView(ListView):
     template_name = 'list.html'
     model = Task
-    context_object_name = 'tasks'
+
+    def get_queryset(self, *args, **kwargs):
+        qs = Task.objects.all().order_by('created_at')
+        completed = self.request.GET.get('completed') == 'on'
+
+        if completed:
+            qs = qs.filter(completed=completed)
+
+        return qs
 
 
 class UpdateTaskView(UpdateView):
     template_name = 'update.html'
     model = Task
-    fields = ['title','description','completed','due_data','user']
+    fields = '__all__'
 
 
 class DeleteTaskView(DeleteView):
