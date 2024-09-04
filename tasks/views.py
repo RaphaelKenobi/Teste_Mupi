@@ -1,5 +1,3 @@
-from django.conf import settings
-from django.shortcuts import render
 from django.views.defaults import page_not_found
 from django.views.generic import TemplateView, UpdateView, CreateView, ListView, DeleteView
 from django.urls import reverse_lazy
