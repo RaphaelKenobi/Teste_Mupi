@@ -15,7 +15,6 @@
 h1 {
     font-size: 4rem;
     letter-spacing: 2px;
-
 }
 
 .container {
@@ -42,7 +41,6 @@ h1 {
     text-decoration: none; /* Garante que a sublinha não apareça */
     cursor: pointer; /* Mantém o cursor como ponteiro para indicar um botão */
 }
-
 
 .paragraph-spacing {
     margin-top: 42px;

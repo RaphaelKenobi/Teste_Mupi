@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django.views.generic import TemplateView
 
-
-
-# Create your views here.
 def register(request):
     form = CustomUserCreationForm()
     if request.method == "POST":

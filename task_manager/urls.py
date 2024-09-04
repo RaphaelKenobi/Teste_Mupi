@@ -10,7 +10,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('tasks/', include('tasks.urls')),
     path('', LandingView.as_view(), name='landing'),
-
 ]
 
 handler404 = 'tasks.views.handler404'

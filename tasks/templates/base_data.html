@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
-
 </head>
+
 <body>
     <form method="post" action="{% url 'logout' %}">
         <button type="submit">Sair</button>
         {% csrf_token %}
     </form>
-
     {% block content %}
     {% endblock %}
 </body>
+
 </html>

@@ -7,7 +7,6 @@ from django.utils.decorators import method_decorator
 from django.shortcuts import redirect, get_object_or_404
 from .forms import InsereTaskForm
 
-
 class HomeView(TemplateView):
     template_name = 'home.html'
 
