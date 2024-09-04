@@ -13,7 +13,7 @@ O *Tasks Management System* é uma aplicação web desenvolvida para ajudar os u
 - Criação de novas tarefas com título, descrição, status de conclusão, data de criação e prazo.
 - Listagem de todas as tarefas do usuário logado, com a opção de filtragem por tarefas concluídas.
 - Atualização e exclusão de tarefas existentes.
-- Marcar tarefas como concluídas diretamente na lista de tarefas.
+- Marcar tarefas como concluídas na lista de tarefas.
 
 ### Interface Responsiva:
 - Layout adaptável para diferentes dispositivos, utilizando Bootstrap.
