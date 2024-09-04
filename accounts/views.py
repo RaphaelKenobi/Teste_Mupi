@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django.views.generic import TemplateView
-from django.contrib import messages
+
 
 
 # Create your views here.
