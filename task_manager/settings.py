@@ -145,5 +145,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = '/tasks/home/'
+LOGIN_REDIRECT_URL = '/tasks/home'
 LOGOUT_REDIRECT_URL = '/'

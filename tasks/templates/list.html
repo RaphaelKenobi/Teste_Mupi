@@ -44,14 +44,15 @@
                                             <td class="text-center">{{ task.created_at|date:"d/m/Y H:i" }}</td>
                                             <td class="text-center">{{ task.due_data|date:"d/m/Y" }}</td>
                                             <td class="text-center">
-                                                <a href="{% url 'update' pk=task.id %}" class="btn btn-primary btn-sm">
-                                                    Atualizar
-                                                </a>
-                                                <a href="{% url 'delete' pk=task.id %}" class="btn btn-danger btn-sm">
-                                                    Excluir
-                                                </a>
+                                                <a href="{% url 'update' pk=task.id %}" class="btn btn-primary btn-sm">Atualizar</a>
+                                                <a href="{% url 'delete' pk=task.id %}" class="btn btn-danger btn-sm">Excluir</a>
+                                                {% if not task.completed %}
+                                                <form action="{% url 'complete_task' pk=task.id %}" method="post" style="display:inline;">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-success btn-sm">Concluir</button>
+                                                </form>
+                                                {% endif %}
                                             </td>
-                                        </tr>
 
                                     {% endfor %}
                                 </tbody>
