@@ -1,7 +1,7 @@
 from django import forms
 from .models import Task
 
-class InsereTaskForm(forms.ModelForm):
+class InsertTaskForm(forms.ModelForm):
 
     class Meta:
         model = Task

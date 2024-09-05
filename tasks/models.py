@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 
 class Task(models.Model):
-    # class Meta:
-    #     verbose_name = 'Tarefa'
+    class Meta:
+        verbose_name = 'Tarefa'
 
     title = models.CharField(max_length=100,verbose_name='Título da tarefa')
     description = models.TextField(max_length=180,verbose_name='Descrição detalhada da tarefa')
