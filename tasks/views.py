@@ -22,6 +22,8 @@ class ListTaskView(ListView):
         if completed:
             context['object_list'] = context['object_list'].filter(completed=True)
 
+        context['pending_tasks_count'] = Task.objects.filter(user=self.request.user, completed=False).count()
+
         return context
 
 
@@ -65,3 +67,5 @@ def complete_task(request, pk):
         task.completed = True
         task.save()
         return redirect('list')
+
+
